@@ -11,7 +11,6 @@ This is a simple chatbot where you are a customer in a donut shop.
    * pip install tensorflow
 4. To start the program, run the following command:
    * python main.py
-5. Have fun! Further instructions are provided in the game.
 
 # Additional Notes
 1. You can add new responses to the chatbot by using the 'teach' command (just say the word 'teach' to the bot).
