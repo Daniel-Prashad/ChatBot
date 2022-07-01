@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath":"C:\\Users\\Daniel\\Anaconda3\\envs\\chat\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "terminal.intergrated.inheritEnv": false
+}
