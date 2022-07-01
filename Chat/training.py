@@ -2,6 +2,7 @@ import nltk
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
+import pickle
 import numpy as np
 import tflearn
 import tensorflow as tf
@@ -72,6 +73,10 @@ def create_training_data(words, labels, docs_x, docs_y):
         # append the corresponding lists collected from this pattern
         training.append(bag)
         output.append(output_row)
+
+    # store the data used in training and building the model
+    with open("data.pickle", "wb") as f:
+        pickle.dump([words, labels, training, output], f)
 
     # return each list
     return training, output

@@ -39,7 +39,7 @@ def chat(model, words, labels, data):
     '''
     call_add_data = False
     # provide the user with some instructions
-    print("Start talking with the bot! (Type 'teach' to teach the chatbot a new response or 'quit' to stop).")
+    print("\nStart talking with the bot! (Type 'teach' to teach the chatbot a new response or 'quit' to stop).")
     while True:
         # get input from the user
         inp = input("You: ")
@@ -68,10 +68,10 @@ def chat(model, words, labels, data):
                 print("Bot: I don't quite understand. Please ask another question.")
     # allow the user to add a new response for the chatbot if they chose to do so
     if call_add_data:
-        add_data(data)
+        add_data(data, labels)
 
 
-def add_data(data):
+def add_data(data, labels):
     '''(dictionary) -> Nonetype
     Given a response, pattern and tag from the user, this function is used to add a new response for the chatbot to use.
     The user's input is used to update intents.json and then the model is retrained accordingly.
@@ -82,7 +82,8 @@ def add_data(data):
     # store the user's input for a given response, pattern and tag
     inp_response = input("Please enter a response you would like to see from the chatbot: ")
     inp_pattern = input("Please enter a prompt from the user that would elicit this response: ")
-    inp_tag = input("Please enter the subject of your input: ")
+    print(f"Existing Subjects: ", {*labels,})
+    inp_tag = input("Please enter the subject of your input (You can select one from the list above or add a new subject): ")
 
     # loop through each dictionary in intents.json
     for i, intent in enumerate(data["intents"]):
