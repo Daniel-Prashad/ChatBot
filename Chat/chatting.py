@@ -7,7 +7,7 @@ stemmer = LancasterStemmer()
 import numpy as np
 import random
 import json
-
+import os
 
 def bag_of_words(sentence, words):
     '''(string, list) -> numpy array
@@ -38,8 +38,7 @@ def chat(model, words, labels, data):
     the user and selecting & displaying the appropriate response from the chatbot.
     '''
     call_add_data = False
-    # provide the user with some instructions
-    print("\nStart talking with the bot! (Type 'teach' to teach the chatbot a new response or 'quit' to stop).")
+   
     while True:
         # get input from the user
         inp = input("You: ")
@@ -124,7 +123,8 @@ def add_data(data, labels):
     model, words, labels = retrain_refit(data)
 
     # tell the user that the chatbot has been updated
-    print("The chatbot has been updated.")
+    os.system('cls')
+    print("The chatbot has been updated. Continue speaking. (Type 'teach' to teach the chatbot another response or 'quit' to stop).")
 
     # allow the user to continue chatting
     chat(model, words, labels, data)

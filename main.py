@@ -3,7 +3,7 @@ from Chat.training import clean_data, create_training_data, fit_model
 
 import json
 import pickle
-
+import os
 
 if __name__ == '__main__':
     # open the intents file
@@ -19,6 +19,8 @@ if __name__ == '__main__':
         training, output = create_training_data(words, labels, docs_x, docs_y)
     # fit the model using the data above
     model = fit_model(training, output)
-    # allow the user to start chatting with the chatbot
+    # provide the user with some instructions and allow them to start chatting with the chatbot
+    os.system('cls')
+    print("Start talking with the bot! (Type 'teach' to teach the chatbot a new response or 'quit' to stop).")
     chat(model, words, labels, data)
   
